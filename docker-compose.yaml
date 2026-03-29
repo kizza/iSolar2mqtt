@@ -1,0 +1,24 @@
+services:
+  isolar2mqtt:
+    build: https://github.com/kizza/iSolar2mqtt.git
+    container_name: isolar2mqtt
+    restart: unless-stopped
+    depends_on:
+      - mqtt
+
+    environment:
+      # ---- Sungrow ----
+      - USER_ACCOUNT=${ISOLAR_USER}
+      - USER_PASSWORD=${ISOLAR_PASS}
+      - APP_KEY=${ISOLAR_APP_KEY}
+
+      # ---- MQTT ----
+      - MQTT_HOST=${MQTT_HOST}
+      - MQTT_PORT=${MQTT_PORT}
+      - MQTT_USERNAME=${MQTT_USER}
+      - MQTT_PASSWORD=${MQTT_PASS}
+      - MQTT_TOPIC=solar/sungrow/power
+
+      # ---- Polling ----
+      - POLL_INTERVAL=600 # Every 10 minutes
+

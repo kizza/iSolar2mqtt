@@ -1,0 +1,12 @@
+{
+  "name": "iSolar2mqtt",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Publish iSolar power generation to homeassistant",
+  "main": "index.js",
+  "author": "Keiran O'Leary",
+  "license": "MIT",
+  "dependencies": {
+    "mqtt": "^5.15.1"
+  }
+}
